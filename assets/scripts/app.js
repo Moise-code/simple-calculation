@@ -5,52 +5,51 @@ let currentValue = defaultValue;
 let resultDescription = ``;
 
 
-// function to get userInput
+// function to get input from input field
 
 const getUserNumberInput = () =>{
     return parseInt(inputNumber.value)
 }
 
-// function to call the result
+// function to generates and writes calculation log
 
 const createAndWriteOutput = (operator, resultBeforeCalc, calcNumber) =>{
     const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`
-    outputResult(currentValue, calcDescription);
+    outputResult(currentValue, calcDescription); // from vendor file.
 }
 
-// now we are going to create the add function to add to values the current result and the value user entered.
+// function to add two valuesd
 const add = () =>{
     const enteredNumber = getUserNumberInput();
-    currentValue = currentValue + parseInt(enteredNumber);
+    currentValue += parseInt(enteredNumber);
     inputNumber.value = '';
     createAndWriteOutput('+',currentValue, enteredNumber)
 }
 
-// we are going to add the event listerner to the add button for it to take the
-// add function to it once clicked.
+// add event listerner to add button
 
 addBtn.addEventListener('click', add);
 
 const minus = () =>{
     const enteredNumber = getUserNumberInput();
-    currentValue = currentValue - parseInt(enteredNumber);
+    currentValue -=  parseInt(enteredNumber);
     inputNumber.value = '';
     createAndWriteOutput('-', currentValue, enteredNumber)
 }
 
-// adding the minus function to the eventlisterner of minus button
+// add eventListerner to minus button
 
 minusBtn.addEventListener('click', minus);
 
 // multiply function
 const multiply = () =>{
     const enteredNumber = getUserNumberInput();
-    currentValue = currentValue * parseInt(enteredNumber);
+    currentValue *= parseInt(enteredNumber);
     inputNumber.value = '';
     createAndWriteOutput('*', currentValue, enteredNumber)
 }
 
-// adding the multiply function to the eventlisterner of multiply button
+// add eventlisterner to multiply button
 
 multiplyBtn.addEventListener('click', multiply);
 
@@ -58,11 +57,11 @@ multiplyBtn.addEventListener('click', multiply);
 
 const devide = () =>{
     const enteredNumber = getUserNumberInput();
-    currentValue = currentValue / parseInt(enteredNumber);
+    currentValue /= parseInt(enteredNumber);
     inputNumber.value = '';
     createAndWriteOutput('/',currentValue,enteredNumber)
 }
 
-// adding the devide function to the eventlisterner of devide button
+// adding the eventListerner to the devide button.
 
 divideBtn.addEventListener('click', devide);
