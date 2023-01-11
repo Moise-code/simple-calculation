@@ -11,3 +11,8 @@ const add = () =>{
     inputNumber.value = '';
     outputResult(currentValue, resultDescription);
 }
+
+// we are going to add the event listerner to the add button for it to take the
+// add function to it once clicked.
+
+addBtn.addEventListener('click', add);
