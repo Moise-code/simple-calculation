@@ -43,3 +43,17 @@ const multiply = () =>{
 // adding the multiply function to the eventlisterner of multiply button
 
 multiplyBtn.addEventListener('click', multiply);
+
+// adding the devide function to devide two numbers
+
+const devide = () =>{
+    const enteredNumber = inputNumber.value;
+    resultDescription = `${currentValue} / ${enteredNumber}`;
+    currentValue = currentValue / parseInt(enteredNumber);
+    inputNumber.value = '';
+    outputResult(currentValue, resultDescription);
+}
+
+// adding the devide function to the eventlisterner of devide button
+
+divideBtn.addEventListener('click', devide);
