@@ -8,4 +8,5 @@ let resultDescription = ``;
 const add = () =>{
     resultDescription = `the current value ${currentValue} + the value user entered ${inputNumber.value.trim}`;
     currentValue = currentValue + parseInt(inputNumber.value.trim());
+    inputNumber.value = '';
 }
