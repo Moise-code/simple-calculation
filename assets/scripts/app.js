@@ -34,7 +34,7 @@ const writeToLog =
 // function to add the if statement into the code.
 const calculateResult = (calculationOperator) => {
   const enteredNumber = getUserNumberInput();
-  initialValue = currentValue;
+  let initialValue = currentValue;
   let mathOperator;
 
   if (calculationOperator === 'addition') {
