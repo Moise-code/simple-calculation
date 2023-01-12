@@ -20,44 +20,51 @@ const createAndWriteOutput = (operator, resultBeforeCalc, calcNumber) => {
 // let create write to log function
 
 const writeToLog =
-  (operationaIdentifier, prevResult, operationNumber, newResult) =>{
+  (operationaIdentifier, prevResult, operationNumber, newResult) => {
     const logEntry = {
-        sign: operationaIdentifier,
-        prevNumber: prevResult,
-        fromUser: operationNumber,
-        result: newResult,
-      };
-      logEntries.push(logEntry);
-      console.log(logEntries);
+      sign: operationaIdentifier,
+      prevNumber: prevResult,
+      fromUser: operationNumber,
+      result: newResult,
+    };
+    logEntries.push(logEntry);
+    console.log(logEntries);
   };
 
-  // function to add the if statement into the code.
+// function to add the if statement into the code.
 const calculateResult = (calculationOperator) => {
   const enteredNumber = getUserNumberInput();
   initialValue = currentValue;
   let mathOperator;
 
-  if(calculationOperator === 'addition'){
+  if (calculationOperator === 'addition') {
     currentValue += parseInt(enteredNumber);
     mathOperator = '+';
     inputNumber.value = "";
-    
-  } else if(calculationOperator === 'substract') {
+
+  } else if (calculationOperator === 'substract') {
     currentValue -= parseInt(enteredNumber);
     mathOperator = '-'
-  inputNumber.value = "";
+    inputNumber.value = "";
 
-  } else if(){
+  } else if (calculationOperator === 'multiply') {
+    currentValue -= parseInt(enteredNumber);
+    mathOperator = '*'
+    inputNumber.value = "";
 
+  } else if (calculationOperator === 'divide') {
+    currentValue -= parseInt(enteredNumber);
+    mathOperator = '/'
+    inputNumber.value = "";
   }
-  
+
   createAndWriteOutput(mathOperator, currentValue, enteredNumber);
-  writeToLog(calculationOperator,initialValue,enteredNumber,currentValue)
+  writeToLog(calculationOperator, initialValue, enteredNumber, currentValue)
 }
 
 // function to add two valuesd
 const add = () => {
-calculateResult('addition');
+  calculateResult('addition');
 };
 
 // add event listerner to add button
@@ -65,12 +72,7 @@ calculateResult('addition');
 addBtn.addEventListener("click", add);
 
 const minus = () => {
-  const enteredNumber = getUserNumberInput();
-  initialValue = currentValue;
-  currentValue -= parseInt(enteredNumber);
-  inputNumber.value = "";
-  createAndWriteOutput("-", currentValue, enteredNumber);
-  writeToLog('SUBSTRACTION', initialValue, enteredNumber, currentValue)
+  calculateResult('substract')
 };
 
 // add eventListerner to minus button
@@ -79,12 +81,7 @@ minusBtn.addEventListener("click", minus);
 
 // multiply function
 const multiply = () => {
-  const enteredNumber = getUserNumberInput();
-  initialValue = currentValue;
-  currentValue *= parseInt(enteredNumber);
-  inputNumber.value = "";
-  createAndWriteOutput("*", currentValue, enteredNumber);
-  writeToLog('Multiply',initialValue,enteredNumber,currentValue)
+  calculateResult('multiply');
 };
 
 // add eventlisterner to multiply button
@@ -94,12 +91,7 @@ multiplyBtn.addEventListener("click", multiply);
 // adding the devide function to devide two numbers
 
 const devide = () => {
-  const enteredNumber = getUserNumberInput();
-  initialValue = currentValue;
-  currentValue /= parseInt(enteredNumber);
-  inputNumber.value = "";
-  createAndWriteOutput("/", currentValue, enteredNumber);
-  writeToLog('DIVIDE',initialValue,enteredNumber,currentValue)
+  calculateResult('divide')
 };
 
 // adding the eventListerner to the devide button.
