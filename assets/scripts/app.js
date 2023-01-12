@@ -31,14 +31,33 @@ const writeToLog =
       console.log(logEntries);
   };
 
-// function to add two valuesd
-const add = () => {
+  // function to add the if statement into the code.
+const calculateResult = (calculationOperator) => {
   const enteredNumber = getUserNumberInput();
   initialValue = currentValue;
-  currentValue += parseInt(enteredNumber);
+  let mathOperator;
+
+  if(calculationOperator === 'addition'){
+    currentValue += parseInt(enteredNumber);
+    mathOperator = '+';
+    inputNumber.value = "";
+    
+  } else if(calculationOperator === 'substract') {
+    currentValue -= parseInt(enteredNumber);
+    mathOperator = '-'
   inputNumber.value = "";
-  createAndWriteOutput("+", currentValue, enteredNumber);
-  writeToLog('Addition',initialValue,enteredNumber,currentValue)
+
+  } else if(){
+
+  }
+  
+  createAndWriteOutput(mathOperator, currentValue, enteredNumber);
+  writeToLog(calculationOperator,initialValue,enteredNumber,currentValue)
+}
+
+// function to add two valuesd
+const add = () => {
+calculateResult('addition');
 };
 
 // add event listerner to add button
